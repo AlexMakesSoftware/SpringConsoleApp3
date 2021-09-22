@@ -1,0 +1,6 @@
+target/
+messageSender.txt
+.vscode/
+.project
+.classpath
+.settings/
