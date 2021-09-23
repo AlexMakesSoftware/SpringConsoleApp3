@@ -21,8 +21,7 @@ public class App implements CommandLineRunner {
     public static void main( String[] args ) {
 
         String externalConfiguration = "usefiles"; // set to usestdio or usefiles
-
-        //this method doesn't set the profile properly but does run.        
+        
         new SpringApplicationBuilder()
             .profiles(externalConfiguration)
             .sources(App.class)
