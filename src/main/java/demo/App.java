@@ -4,29 +4,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.ApplicationContext;
-
 import service.MessageSender;
 
 /**
  * Simple example of a configurable spring console application.
  */
 @SpringBootApplication
-@ComponentScan("service")
-public class App implements CommandLineRunner {
-    
+@ComponentScan("service") //start scanning from this point in the classpath.
+public class App implements CommandLineRunner {   
     @Autowired
-    private MessageSender sender;
-    
+    private ApplicationContext context;
+
     public static void main( String[] args ) {
-        SpringApplication.run(App.class, args);
+
+        String externalConfiguration = "usefiles"; // set to usestdio or usefiles
+
+        //this method doesn't set the profile properly but does run.        
+        new SpringApplicationBuilder()
+            .profiles(externalConfiguration)
+            .sources(App.class)
+            .run(args);
     }
 
     @Override
-    public void run(String... args) {
-        System.out.println("====================================================================");        
+    public void run(String... args) {        
+        MessageSender sender = context.getBean(MessageSender.class);
         sender.send("Hello World!");
         sender.close();
     }

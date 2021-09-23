@@ -16,7 +16,7 @@ public class Configurator {
     }
 
     @Bean
-    @Profile("useStdio")
+    @Profile("usestdio")
     MessageSender config2(){
         System.out.println("useStdio being called!!!");
         return new StdOutImpl();
