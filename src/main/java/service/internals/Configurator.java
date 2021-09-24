@@ -13,15 +13,21 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("file:config/config.properties")
 public class Configurator {
 
-    //gets injected by the property source thing.
+    //gets injected by the property source.
     @Value( "${scenario}" )
     private String scenario;
 
+    //Give me a bean that fits the profile.
     @Bean    
     MessageSender messenger(){
+
+        System.out.println("messager getting configured");
+
         if(scenario.equals("foo")) {
+            System.out.println("'foo' detected, returning a FileImpl");
             return new FileImpl();
         } else {
+            System.out.println("default: returning a StdOutImpl");
             return new StdOutImpl();
         }
     }
