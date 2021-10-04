@@ -12,7 +12,7 @@ public class ApiClient {
     private static String result = "not set";
 
     //this would be called from another applicaiton written in a different language potentially.
-    public void apiInterface(String message) {
+    public String apiInterface(String message) {
         //This is where we're going to have to create Spring, where the languages 'join'.
         SpringApplicationBuilder builder = new SpringApplicationBuilder(SpringApp.class);
         
@@ -24,7 +24,6 @@ public class ApiClient {
                 ApplicationContext context = event.getApplicationContext();
                 MessageSender sender = (MessageSender)context.getBean("postman");
 
-                // add handler to end of run.
                 sender.send(message);
                 sender.close();       
                 
@@ -41,12 +40,7 @@ public class ApiClient {
 
         builder.run();
         
-
-        //TODO: add a finished / shutdown listener? then do...
-
-        System.out.println(result);
-
-        //TODO: why are we getting BYE twice? Is Spring running twice?
+        return result;
     }
 
 }

@@ -6,7 +6,7 @@ public class DummyApplication {
 
     public static void main(String[] args) {
         System.out.println("Third party app started.");
-        new ApiClient().apiInterface("This is an API call from a 3rd party.");
+        String result = new ApiClient().apiInterface("This is an API call from a 3rd party.");
+        System.out.println("returned:"+result);
     }
-
 }
