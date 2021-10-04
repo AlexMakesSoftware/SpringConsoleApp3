@@ -1,15 +1,14 @@
 # Spring configuration test POC.
 
-## Dusting off my Spring knowledge, part 2.
+## Dusting off my Spring knowledge, part 3.
 
-Aim: demonstrate how a component (MessageSender) can be configured (*1) by spring to suit different system profiles without any 'external knowledge'.
+Invoking the app in different ways.
+- As an API from an entirely different app.
+In which case we are not invoking the app from a main method and so not using CommandLineRunner.
+- From a main() method.
+Normally we'd use a CommandLineRunner but we can't or it'll mess up the API call path into the app.
 
-I'm using a properties files in the config directory, which I inject with the handy @PropertySource annotation into the Configurator. If you set the 'scenario' value to 'foo' you get a FileImpl implementation, otherwise you get a StdOutImpl version.
-
-Note that if you specify 'file:' in the path for the property source, it will look on the file system, rather than serching the classpath (i.e. outside of the packaged jar file) - that was the missing part of the puzzle.
-
-(*1) Details of the Configuration class of Spring can be found here:
-https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html
-
-(*2) See @PropertySource https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html
+Testing - unit and system.
+- system test from maven using junit
+- regular junit tests.
 

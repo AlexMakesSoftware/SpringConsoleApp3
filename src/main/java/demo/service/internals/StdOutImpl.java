@@ -1,6 +1,6 @@
-package service.internals;
+package demo.service.internals;
 
-import service.MessageSender;
+import demo.service.MessageSender;
 
 public class StdOutImpl implements MessageSender{
     

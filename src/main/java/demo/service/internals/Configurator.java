@@ -1,10 +1,11 @@
-package service.internals;
+package demo.service.internals;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import service.MessageSender;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+
+import demo.service.MessageSender;
 
 /** Provides a different implementation of MessageSender, based on which profile you're using.
  * NOTE: the use of 'file:' - this is important.
@@ -18,7 +19,7 @@ public class Configurator {
     private String scenario;
 
     //Give me a bean that fits the profile.
-    @Bean    
+    @Bean(name = "postman")
     MessageSender messenger(){
 
         System.out.println("messager getting configured");

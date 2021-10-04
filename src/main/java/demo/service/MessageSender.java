@@ -1,4 +1,4 @@
-package service;
+package demo.service;
 
 public interface MessageSender {
     public void send(String message);

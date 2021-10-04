@@ -1,10 +1,10 @@
-package service.internals;
+package demo.service.internals;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import service.MessageSender;
+import demo.service.MessageSender;
 
 public class FileImpl implements MessageSender {
 
