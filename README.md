@@ -14,3 +14,8 @@ Testing - unit and system.
 - system test from maven using junit
 - regular junit tests.
 
+TODO: Make the unit tests use a seperate configuration file, rather than using the one that the main program uses.
+
+
+see: https://docs.spring.io/spring-framework/docs/4.0.x/spring-framework-reference/html/aop.html#aop-atconfigurable
+"For this to work the annotated types must be woven with the AspectJ weaver"

@@ -10,6 +10,7 @@ import demo.service.MessageSender;
 /** Provides a different implementation of MessageSender, based on which profile you're using.
  * NOTE: the use of 'file:' - this is important.
  */
+
 @Configuration
 @PropertySource("file:config/config.properties")
 public class Configurator {
