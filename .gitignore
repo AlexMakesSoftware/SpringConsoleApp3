@@ -4,3 +4,6 @@ messageSender.txt
 .project
 .classpath
 .settings/
+*.iml
+.idea/
+*.patch
