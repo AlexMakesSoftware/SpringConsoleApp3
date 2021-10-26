@@ -9,7 +9,7 @@ public class ApiClientTest {
     @Test
     public void systemTest() {
         String actual = new ApiClient().apiInterface("This is an API call from a 3rd party.");
-        String expected = "result is set and everything is ok";
+        String expected = "ok";
         assertEquals(expected, actual);
     }
 
